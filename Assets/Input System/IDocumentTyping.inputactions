@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "IDocumentTyping",
+    "maps": [
+        {
+            "name": "Typing",
+            "id": "7c1dc218-8d58-4731-8b3c-71abecd22049",
+            "actions": [
+                {
+                    "name": "GetKey",
+                    "type": "Button",
+                    "id": "f6cfbd5c-ab76-42e7-a1e4-ff94eba88e52",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Key",
+                    "type": "Value",
+                    "id": "e641ba24-db1e-4a90-bf0a-23d38ce81d6c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "817219d2-a93a-41ea-9b89-24db008601b7",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GetKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c0138cd-71d6-4e2c-9336-a9c89bf640dd",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Key",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
