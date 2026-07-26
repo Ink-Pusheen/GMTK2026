@@ -109,7 +109,7 @@ public class MinesweeperManager : MonoBehaviour
         //Loop through the array and display which are bombs
         foreach (var tile in tiles)
         {
-            if (tile.bHasBomb) tile.UpdateText("BOMB");
+            if (tile.bHasBomb) tile.DisplayBomb();
         }
 
         Invoke("ResetBoard", 1); //Reset the board after a second

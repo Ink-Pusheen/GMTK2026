@@ -41,7 +41,8 @@ public class MineTile : MonoBehaviour, iInteraction
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        tileValue.text = ""; //Clear the number view
+        render = GetComponent<SpriteRenderer>(); //Grab the sprite render component
+
         ResetTile(); //Reset the tile prematurely
     }
 
@@ -78,12 +79,15 @@ public class MineTile : MonoBehaviour, iInteraction
         {
             Debug.Log("Bomb detected, display all other tiles");
 
-            tileValue.text = "BOMB";
+            //tileValue.text = "BOMB";
+            //DisplayBomb();
 
             MinesweeperManager.Instance.DisplayBombs();
 
             return;
         }
+
+        render.sprite = null; //Remove the tile overlay
 
         Collider[] foundtiles = Physics.OverlapBox(transform.position, Vector3.one, Quaternion.identity);
 
@@ -130,12 +134,16 @@ public class MineTile : MonoBehaviour, iInteraction
         if (bIsFlagged)
         {
             //Swap to the flag sprite
-            tileValue.text = "Flag";
+            //tileValue.text = "Flag";
+
+            render.sprite = flagSprite;
         }
         else
         {
             //Swap to the undisovered sprite
-            tileValue.text = "";
+            //tileValue.text = "";
+
+            render.sprite = unknownSprite;
         }
     }
 
@@ -149,6 +157,7 @@ public class MineTile : MonoBehaviour, iInteraction
         //Reset sprite and text
 
         tileValue.text = "";
+        render.sprite = unknownSprite;
     }
 
 
@@ -159,4 +168,9 @@ public class MineTile : MonoBehaviour, iInteraction
     }
 
     
+    //Function to display the bomb
+    public void DisplayBomb()
+    {
+        render.sprite = bombSprite;
+    }
 }
