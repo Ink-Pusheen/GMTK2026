@@ -11,6 +11,8 @@ public class DocumentManager : MonoBehaviour
 
     private InputAction type;
 
+    [SerializeField] GameObject typingTab; //Reference to the typing tab to see if the player can accept typing input
+
 
     [Header("Text Fields")]
 
@@ -40,7 +42,7 @@ public class DocumentManager : MonoBehaviour
     void Update()
     {
         //When any keyboard input is pressed, analyze what was pressed and adjust the text accordingly
-        if (type.WasPressedThisFrame())
+        if (type.WasPressedThisFrame() && typingTab.transform.localScale == Vector3.one && PlayerScript.instance.bRunSleepTimer)
         {
             CollectInputData();
         }
