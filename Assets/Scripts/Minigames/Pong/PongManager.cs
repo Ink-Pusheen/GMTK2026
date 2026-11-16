@@ -10,10 +10,8 @@ public class PongManager : MonoBehaviour
     [Header("Paddles")]
 
     [SerializeField] GameObject playerPaddle; //Paddle that the player wil control
-    [SerializeField] Vector3 PlayerPaddlePos; //Starting position of the player paddle
 
     [SerializeField] GameObject AIPaddle; //Paddle that the ai will control
-    [SerializeField] Vector3 AIPaddlePos; //Starting position of the AI Paddle
 
 
     [Header("Ball")]
@@ -24,9 +22,6 @@ public class PongManager : MonoBehaviour
     void Start()
     {
         //Get the local positions to set for the paddle vectors
-        PlayerPaddlePos = playerPaddle.transform.position;
-
-        AIPaddlePos = AIPaddle.transform.position;
 
         mainCam = Camera.main;
     }
@@ -42,19 +37,22 @@ public class PongManager : MonoBehaviour
 
         Vector3 screenMouse = mainCam.ScreenToWorldPoint(mousepos); //Turn it into a vector 3 transform
 
-        //Clamp y between 2.20, -3.45, positive being the upper bounds and negative being the lower bounds
-        float y = Mathf.Clamp(screenMouse.y, -3.45f, 2.20f);
+        //Testing purposes
+        //Debug.Log(screenMouse);
 
-        playerPaddle.transform.position = new Vector3(PlayerPaddlePos.x, y, 0); //Set the player paddle position
+        //Clamp y between 2.20, -3.45, positive being the upper bounds and negative being the lower bounds
+        float y = Mathf.Clamp(screenMouse.y, -3.1f, 2.40f);
+
+        playerPaddle.transform.position = new Vector3(-8, y, 0); //Set the player paddle position
 
         #endregion
 
 
         #region AI
 
-        float yClamp = Mathf.Clamp(Ball.transform.position.y, -3.45f, 2.20f); //Clamp the paddles movement
+        float yClamp = Mathf.Clamp(Ball.transform.position.y, -3.1f, 2.40f); //Clamp the paddles movement
 
-        AIPaddle.transform.position = new Vector3(AIPaddlePos.x, yClamp, 0); //Move the AI paddle where the ball goes
+        AIPaddle.transform.position = new Vector3(8, yClamp, 0); //Move the AI paddle where the ball goes
 
         #endregion
     }

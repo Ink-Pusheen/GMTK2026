@@ -59,6 +59,8 @@ public class MathManiaManager : MonoBehaviour
     //Function to check if the answer is correct
     public void CheckAnswer()
     {
+        if (answerInput.text.Length is 0) return; //Nothing is inputted
+
         int playerInput = int.Parse(answerInput.text);
 
         if(operation is 0) //Check for addition
@@ -68,7 +70,7 @@ public class MathManiaManager : MonoBehaviour
             {
                 Debug.Log("Addition correct");
 
-                PlayerScript.instance.RemoveSleepTime(3f); //Keep the player awake 3 more seconds
+                PlayerScript.instance.RemoveSleepTime(6f); //Keep the player awake 3 more seconds
             }
 
             else Debug.Log("Addition incorrect");
@@ -80,7 +82,7 @@ public class MathManiaManager : MonoBehaviour
             {
                 Debug.Log("Subtraction correct");
 
-                PlayerScript.instance.RemoveSleepTime(3f); //Keep the player awake 3 more seconds
+                PlayerScript.instance.RemoveSleepTime(6f); //Keep the player awake 3 more seconds
             }
 
             else Debug.Log("Subtraction incorrect");

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class DocumentManager : MonoBehaviour
 {
@@ -99,7 +100,15 @@ public class DocumentManager : MonoBehaviour
             
         }
 
-        if (playerTypingInput.text == compareText.text) ProgressLine(); //Debug.Log("This would mark the end of the game");
+        if (playerTypingInput.text == compareText.text && writings.Count > 1) ProgressLine(); //Debug.Log("This would mark the end of the game");
+
+        else if(playerTypingInput.text == compareText.text && writings.Count is 1)
+        {
+            Debug.Log("Game win, swap scenes");
+
+            SceneManager.LoadScene("GameWin");
+        }
+
     }
 
 

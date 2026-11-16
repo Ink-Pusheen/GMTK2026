@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
@@ -47,6 +48,8 @@ public class PlayerScript : MonoBehaviour
             bRunSleepTimer = false;
 
             sleepPanel.color = new Color(0, 0, 0, 1); //Darken the panel accordingly
+
+            SceneManager.LoadScene("GameLose");
         }
     }
 
